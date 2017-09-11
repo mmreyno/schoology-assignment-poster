@@ -72,7 +72,7 @@ the_day = dt.datetime.strptime(meeting_day_string, informat)
 outformat = '%Y-%m-%d'
 next_meeting_day = the_day.strftime(outformat)		
 DUE = next_meeting_day+' '+next_meeting_time	
-print DUE
+
 	
 
 # API information and initial settings
