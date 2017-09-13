@@ -8,36 +8,41 @@ import random
 import datetime as dt
 import argparse
 
+
 # Take the info from the command line input
 parser = argparse.ArgumentParser(add_help=True)
 parser.add_argument('-c', type=str, help="class")
 parser.add_argument('-a', type=str, help="assignment")
 args = parser.parse_args()
 
+
 # Parse arguments
 group = args.c
 TITLE = args.a
 
+
 # Set class_id so things get posted to the right spot
 if group == '6':
-	class_id = '1178062708'
+	class_id = 'YOUR_CLASS_ID'
 elif group == '7':
-	class_id = '1178062718'
+	class_id = 'YOUR_CLASS_ID'
 elif group == '9':
-	class_id = '1178062730'
+	class_id = 'YOUR_CLASS_ID'
 elif group == '11':
-	class_id = '1178062696'		
+	class_id = 'YOUR_CLASS_ID'		
 elif group == '12':
-	class_id = '1178062686'
+	class_id = 'YOUR_CLASS_ID'
 elif group == '13':
-	class_id = '1235289292'	
+	class_id = 'YOUR_CLASS_ID'	
 else:
 	print "Class error!"
 # 	sys.exit	
 
+
 # Set some initial stuff up
 group_meetings = {}
 today = dt.datetime.now()
+
 
 # Get my list of classes
 with open('timetable.csv') as f:
@@ -74,7 +79,6 @@ next_meeting_day = the_day.strftime(outformat)
 DUE = next_meeting_day+' '+next_meeting_time	
 
 	
-
 # API information and initial settings
 KEY = 'YOUR_KEY'
 SECRET = 'YOUR_SECRET'
@@ -122,6 +126,7 @@ DATA = json.dumps(payload)
 url =  'https://api.schoology.com/v1/sections/%s/assignments' %class_id
 
 
+# Show the result
 print requests.post(url,data=DATA,headers=HEADERS,auth=AUTH)
 
 
